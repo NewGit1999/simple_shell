@@ -10,7 +10,7 @@
 int handle_exit(char **cmd)
 {
 	int exitstatus = 0, i = 0, str_in = 0;
-	char *ermsg;
+	char *msg, *smn;
 
 	if (cmd[1])
 	{
@@ -20,30 +20,35 @@ int handle_exit(char **cmd)
 				str_in = 1;
 			i++;
 		}
-		ermsg = _malloc(l("exit: Illegal number: ") + l(cmd[1]) + 4);
-		_strcpy(ermsg, "exit: Illegal number: ");
-		_strcat(ermsg, cmd[1]);
-
 		if (str_in)
 		{
 			errno = -1;
-			print_error(cmd[0], NULL, ermsg);
+			msg = _malloc(_strlen("numeric argument required ") + _strlen(cmd[1]) + 4);
+			_strcpy(msg, "numeric argument required ");
+			smn = _malloc(_strlen("exit: ") + _strlen(cmd[1]) + 4);
+			_strcpy(smn, "exit: "), _strcat(smn, cmd[1]);
+			print_error(smn, NULL, msg);
+			free(msg), free(smn);
 			exitstatus = 2;
-
 		}
 		else if (_atoi(cmd[1]) < 0)
 		{
 			errno = -1;
-			print_error(cmd[1], NULL, ermsg);
+			msg = _malloc(_strlen("numeric argument required ") + _strlen(cmd[1]) + 4);
+			_strcpy(msg, "numeric argument required ");
+			smn = _malloc(_strlen("exit: ") + _strlen(cmd[1]) + 4);
+			_strcpy(smn, "exit: "), _strcat(smn, cmd[1]);
+			print_error(smn, NULL, msg);
+			free(msg), free(smn);
 			exitstatus = 2;
 		}
 		else
 			exitstatus = _atoi(cmd[1]) % 256;
 
-		free(ermsg);
 	}
 	return (exitstatus);
 }
+
 /**
  * handle_bin - handle built-in commands
  * @cmd: arguments
