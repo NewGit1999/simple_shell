@@ -1,0 +1,6 @@
+alias beans=ls
+beans
+alias food="pwd"
+food
+alias sweet='echo'
+sweet $PATH
