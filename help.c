@@ -32,6 +32,8 @@ void print_help(char *arg)
 		_write(1, exit_h, _strlen(exit_h));
 	else if (!_strcmp(arg, "setenv"))
 		_write(1, set_h, _strlen(set_h));
+	else if (!_strcmp(arg, "unsetenv"))
+		_write(1, unset_h, _strlen(unset_h));
 	else
 	{
 		_write(2, "No help found for ", 18), fd = 2;
