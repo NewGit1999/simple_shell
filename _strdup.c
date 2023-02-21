@@ -1,24 +1,24 @@
 #include "shell.h"
 
 /**
- * _strdup - duplicate a string
- * @str: string to be duplicated
+ * _strdup - duplicate string
+ * @str: string to duplicate
  * Return: duplicated string
  */
 
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
+	int length = 0;
+	char *ret;
 
-	char *copy, *_copy;
-
-	if (!str)
+	if (str == NULL)
 		return (NULL);
-	copy = _malloc((_strlen(str) + 1) * sizeof(char));
-	_copy = copy;
-
-	while (*str)
-		*_copy = *str, str += 1, _copy += 1;
-
-	*_copy = '\0';
-	return (copy);
+	while (*str++)
+		length++;
+	ret = malloc(sizeof(char) * (length + 1));
+	if (!ret)
+		return (NULL);
+	for (length++; length--;)
+		ret[length] = *--str;
+	return (ret);
 }

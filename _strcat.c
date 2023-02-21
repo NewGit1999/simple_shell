@@ -1,24 +1,21 @@
 #include "shell.h"
 
 /**
- * _strcat - concatinate 2 strings
+ * _strcat - concatenate 2 strings
  * @dest: string destination
  * @src: source string
  *
- * Return: concatinated string
+ * Return: destination
  */
 
 char *_strcat(char *dest, char *src)
 {
-	char *p = dest;
+	char *ret = dest;
 
-	while (*p)
-		p++;
-
+	while (*dest)
+		dest++;
 	while (*src)
-		*p++ = *src++;
-
-	*p = '\0';
-
-	return (dest);
+		*dest++ = *src++;
+	*dest = *src;
+	return (ret);
 }

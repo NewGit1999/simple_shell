@@ -1,25 +1,19 @@
 #include "shell.h"
 
 /**
- * _strlen - return length of string
- * @str: the string
- * Return: length of string
+ * _strlen - find string length
+ * @s: the string
+ * Return: string length
  */
 
-int _strlen(const char *str)
+int _strlen(char *s)
 {
-	int length;
+	int i = 0;
 
-	if (!str)
+	if (!s)
 		return (0);
 
-	length = 0;
-	while (*str)
-	{
-		str += 1;
-		length += 1;
-	}
-
-	return (length);
-
+	while (*s++)
+		i++;
+	return (i);
 }

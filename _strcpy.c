@@ -1,21 +1,24 @@
 #include "shell.h"
 
 /**
- * *_strcpy - copy string
- * @dest: destination string
- * @src: source string
+ * _strcpy - copy string
+ * @dest: string destination
+ * @src: source source
  *
- * Return: dest
+ * Return: destonation string
  */
 
 char *_strcpy(char *dest, char *src)
 {
-	char *ptr = dest;
+	int i = 0;
 
-	if (!dest)
-		return (NULL);
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (ptr);
+	if (dest == src || src == 0)
+		return (dest);
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (dest);
 }
