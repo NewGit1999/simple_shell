@@ -2,12 +2,11 @@
 
 /**
  * main - entry point
- * @ac: argument counter
- * @av: argument vector
+ * @ac: arg count
+ * @av: arg vector
  *
  * Return: 0 on success, 1 on error
  */
-
 int main(int ac, char **av)
 {
 	info_t info[] = { INFO_INIT };
@@ -25,7 +24,6 @@ int main(int ac, char **av)
 		{
 			if (errno == EACCES)
 				exit(126);
-
 			if (errno == ENOENT)
 			{
 				_eputs(av[0]);
@@ -39,9 +37,9 @@ int main(int ac, char **av)
 		}
 		info->readfd = fd;
 	}
-
-	fill_env_list(info);
+	populate_env_list(info);
 	read_history(info);
-	simple_shell(info, av);
+	hsh(info, av);
 	return (EXIT_SUCCESS);
 }
+

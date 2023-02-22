@@ -1,11 +1,9 @@
 #include "shell.h"
 
 /**
- * clear_info - remove nodes
- * @info: arguments
- * Return: none
+ * clear_info - initializes info_t struct
+ * @info: struct address
  */
-
 void clear_info(info_t *info)
 {
 	info->arg = NULL;
@@ -15,13 +13,10 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - set nodes
- * @info: argumnents
+ * set_info - initializes info_t struct
+ * @info: struct address
  * @av: argument vector
- *
- * Return: none
  */
-
 void set_info(info_t *info, char **av)
 {
 	int i = 0;
@@ -29,7 +24,7 @@ void set_info(info_t *info, char **av)
 	info->fname = av[0];
 	if (info->arg)
 	{
-		info->argv = str_tow1(info->arg, " \t");
+		info->argv = strtow(info->arg, " \t");
 		if (!info->argv)
 		{
 
@@ -50,13 +45,10 @@ void set_info(info_t *info, char **av)
 }
 
 /**
- * free_info - free nodes
- * @info: arguments
- * @all: fields to free
- *
- * Return: none
+ * free_info - frees info_t struct fields
+ * @info: struct address
+ * @all: true if freeing all fields
  */
-
 void free_info(info_t *info, int all)
 {
 	ffree(info->argv);
@@ -74,9 +66,10 @@ void free_info(info_t *info, int all)
 			free_list(&(info->alias));
 		ffree(info->environ);
 			info->environ = NULL;
-		free_buffer((void **)info->cmd_buf);
+		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
 			close(info->readfd);
 		_putchar(BUF_FLUSH);
 	}
 }
+
