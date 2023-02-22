@@ -2,7 +2,7 @@
 ## Background Context
 * A simple UNIX command interpreter.
 ![shell](https://user-images.githubusercontent.com/85158665/219971433-f2b21b08-f3c0-491d-a13b-f925b05660f0.jpeg)
-^ “The Gates of Shell”, by Spencer Cheng, featuring Julien Barbier
+^ “The Gates of Shell”, by Spencer Cheng, featuring Julien Barbier.
 ## Learning Objectives
 At the end of this project, it is expected to be able to explain to anyone, without the help of Google:
 ### General
