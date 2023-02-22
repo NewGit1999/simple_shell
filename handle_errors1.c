@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *_eputs - print to stdout
+ * _eputs - print to stdout
  * @str: the string to be printed
  * Return: Nothing
  */
@@ -64,7 +64,7 @@ int _putfd(char c, int fd)
 }
 
 /**
- *_putsfd - print an tsring to stdout
+ * _putsfd - print an tsring to stdout
  * @str: the string to be printed
  * @fd: field descriptor to writ to
  *
