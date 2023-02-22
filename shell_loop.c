@@ -80,7 +80,6 @@ int find_builtin(info_t *info)
 /**
  * find_cmd - finds a command in PATH
  * @info: the parameter & return info struct
- *
  * Return: void
  */
 void find_cmd(info_t *info)
@@ -122,7 +121,6 @@ void find_cmd(info_t *info)
 /**
  * fork_cmd - forks a an exec thread to run cmd
  * @info: the parameter & return info struct
- *
  * Return: void
  */
 void fork_cmd(info_t *info)
@@ -132,7 +130,6 @@ void fork_cmd(info_t *info)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
@@ -145,7 +142,6 @@ void fork_cmd(info_t *info)
 				exit(126);
 			exit(1);
 		}
-		/* TODO: PUT ERROR FUNCTION */
 	}
 	else
 	{
@@ -158,4 +154,3 @@ void fork_cmd(info_t *info)
 		}
 	}
 }
-
